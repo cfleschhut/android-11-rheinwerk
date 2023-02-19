@@ -12,7 +12,12 @@
     <EditText
         android:id="@+id/input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:autofillHints="personName"
+        android:hint="@string/firstname_surname"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        android:lines="1" />
 
     <Button
         android:id="@+id/next_finish"
