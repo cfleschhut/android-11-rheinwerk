@@ -6,14 +6,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
-private var firstClick = true
+import androidx.core.widget.doAfterTextChanged
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var message: TextView
     private lateinit var nextFinish: Button
     private lateinit var input: EditText
+
+    private var firstClick = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +23,13 @@ class MainActivity : AppCompatActivity() {
         message = findViewById(R.id.message)
         nextFinish = findViewById(R.id.next_finish)
         input = findViewById(R.id.input)
+
+        input.setOnEditorActionListener { _, _, _ ->
+            if (nextFinish.isEnabled) {
+                nextFinish.performClick()
+            }
+            true
+        }
 
         message.setText(R.string.welcome)
         nextFinish.setText(R.string.next)
@@ -37,5 +45,10 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         }
+
+        input.doAfterTextChanged {
+            nextFinish.isEnabled = it?.isNotEmpty() ?: false
+        }
+        nextFinish.isEnabled = false
     }
 }
