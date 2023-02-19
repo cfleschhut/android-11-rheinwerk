@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">RheinwerkHalloAndroid</string>
+    <string name="welcome">
+Guten Tag. Schön, dass Sie mich gestartet haben.
+Bitte verraten Sie mir Ihren Namen.
+    </string>
+    <string name="hello">
+Hallo %1$s. Ich freue mich, Sie kennenzulernen.
+    </string>
+    <string name="next">Weiter</string>
+    <string name="finish">Fertig</string>
+    <string name="firstname_surname">Vorname Nachname</string>
 </resources>
